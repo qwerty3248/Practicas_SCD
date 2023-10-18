@@ -1,0 +1,11 @@
+Este es el portfolio para el cambio del seminario 2 de el problema de 1
+productor y de 1 consumidor, se cambia de la versión LIFO ya dada a una 
+versión FIFO que es la que se va a implementar
+
+Cambios:
+	-Nueva variable primera_ocupada y num_elementos;
+	-En cada elemento del vector hacemos el modulo para evitar que se salga
+	-Cambio en los assert
+	
+	
+	

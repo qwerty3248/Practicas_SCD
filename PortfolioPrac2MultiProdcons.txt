@@ -1,0 +1,16 @@
+Este es el portfolio de el primer ejercicio de la practica 2 de las dos versiones
+que tiene.
+LIFO:
+	-Vector del dato siguiente a cero para respetar las fronteras de la 
+	generación de datos.
+	-Cada consumidor y cada productor se ejecuta en el intervalo dado.
+	-Ahora se le debe pasar el numero del productor y del consumidor tanto
+	a las funciones que producen como las que consumen además de las 
+	funciones de las hebras.
+	
+FIFO:
+	-Los mismo cambios que se ha hecho en la LIFO solamente que se implementa
+	como en el seminario con el modulo en los vectores.
+	-Dos variables nuevas para tener el numero de elementos y la primera
+	ocupada.
+	-Cambio en los assert	
