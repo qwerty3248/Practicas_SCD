@@ -1,0 +1,168 @@
+Este es el portfolio de los fumadores con monitores, con su pseudocodigo:
+
+
+Función ponerIngrediente(ingrediente)
+begin
+    while mostrador_lleno
+    begin
+    	estanquero.wait()
+    end
+
+    // Producir el ingrediente
+    ingrediente_producido = ingrediente
+
+    // Retardo aleatorio
+    Retardo(aleatorio(10, 100))
+
+    // Marcar el mostrador como lleno
+    mostrador_lleno = true
+
+    // Despertar a los fumadores en la cola 'fumador'
+    aux = num_fumadores
+    while aux != 0
+    begin   
+    	aux-- 
+        fumador.signal()
+    end
+end
+
+
+Función obtenerIngrediente(i)
+begin
+    while no (mostrador_lleno y ingrediente_producido = i)
+    begin   	
+       	fumador.wait()
+    end
+
+    // El fumador obtiene el ingrediente
+    Imprimir "Obtengo el ingrediente ", i, ", soy el fumador ", i
+
+    // Cambiar el estado del mostrador
+    mostrador_lleno = false
+
+    // Despertar al estanquero para producir un nuevo ingrediente
+    estanquero.signal()
+end 
+
+Función esperarRecogidaIngrediente()
+begin
+    while mostrador_lleno
+    begin
+        estanquero.wait()
+    end
+
+    // El mostrador ya está vacío
+    Imprimir "El mostrador ya está vacío"
+
+end
+
+
+
+
+Cola de Condición fumador:
+   Condición de Espera: !mostrador_lleno || ingrediente_producido != i
+   Significado: Los fumadores esperan en esta cola hasta que el mostrador 
+                no esté lleno y el ingrediente producido coincida 
+                con el que están buscando.
+
+Cola de Condición estanquero:
+   Condición de Espera: Depende de cómo se utilice en el código. 
+                        Puede ser para que el estanquero espere a que 
+                        los fumadores estén listos o para que los 
+                        fumadores esperen a que el estanquero 
+                        produzca un nuevo ingrediente.
+
+
+Variable fumador:
+   Tipo: CondVar (Condición de variable)
+   Valores Posibles: Valores de CondVar (verdadero o falso)
+   Significado: Se utiliza para que los fumadores esperen a que el estanquero 
+                les indique que pueden obtener un ingrediente.
+
+Variable estanquero:
+   Tipo: CondVar (Condición de variable)
+   Valores Posibles: Valores de CondVar (verdadero o falso)
+   Significado: Se utiliza para que el estanquero espere a que los fumadores 
+                estén listos para recoger un ingrediente.
+
+Variable mostrador_lleno:
+   Tipo: Booleano
+   Valores Posibles: Verdadero o Falso
+   Significado: Indica si el mostrador está lleno o vacío.
+
+Variable ingrediente_producido:
+   Tipo: Entero
+   Valores Posibles: Enteros que representan los ingredientes (0, 1, 2, ...).
+   Significado: Almacena el número de ingrediente producido por el estanquero.
+   
+LA SALIDA PRODUCIDA:
+Estanquero : empieza a producir ingrediente (77 milisegundos)
+Estanquero : termina de producir ingrediente 0
+El ingrediente 0 ha sido colocado
+Obtengo el ingrediente 0, soy el fumador 0
+Fumador 0  : empieza a fumar (40 milisegundos)
+El mostrador ya esta vacio
+Estanquero : empieza a producir ingrediente (82 milisegundos)
+Fumador 0  : termina de fumar, comienza espera de ingrediente.
+Estanquero : termina de producir ingrediente 0
+El ingrediente 0 ha sido colocado
+Obtengo el ingrediente 0, soy el fumador 0
+Fumador 0  : empieza a fumar (22 milisegundos)
+El mostrador ya esta vacio
+Estanquero : empieza a producir ingrediente (97 milisegundos)
+Fumador 0  : termina de fumar, comienza espera de ingrediente.
+Estanquero : termina de producir ingrediente 2
+El ingrediente 2 ha sido colocado
+Obtengo el ingrediente 2, soy el fumador 2
+Fumador 2  : empieza a fumar (28 milisegundos)
+El mostrador ya esta vacio
+Estanquero : empieza a producir ingrediente (17 milisegundos)
+Estanquero : termina de producir ingrediente 1
+Fumador 2  : termina de fumar, comienza espera de ingrediente.
+El ingrediente 1 ha sido colocado
+Obtengo el ingrediente 1, soy el fumador 1
+Fumador 1  : empieza a fumar (90 milisegundos)
+El mostrador ya esta vacio
+Estanquero : empieza a producir ingrediente (61 milisegundos)
+Estanquero : termina de producir ingrediente 1
+Fumador 1  : termina de fumar, comienza espera de ingrediente.
+El ingrediente 1 ha sido colocado
+Obtengo el ingrediente 1, soy el fumador 1
+Fumador 1  : empieza a fumar (52 milisegundos)
+El mostrador ya esta vacio
+Estanquero : empieza a producir ingrediente (15 milisegundos)
+Estanquero : termina de producir ingrediente 1
+Fumador 1  : termina de fumar, comienza espera de ingrediente.
+El ingrediente 1 ha sido colocado
+Obtengo el ingrediente 1, soy el fumador 1
+Fumador 1  : empieza a fumar (168 milisegundos)
+El mostrador ya esta vacio
+Estanquero : empieza a producir ingrediente (82 milisegundos)
+Estanquero : termina de producir ingrediente 1
+Fumador 1  : termina de fumar, comienza espera de ingrediente.
+El ingrediente 1 ha sido colocado
+Obtengo el ingrediente 1, soy el fumador 1
+Fumador 1  : empieza a fumar (171 milisegundos)
+El mostrador ya esta vacio
+Estanquero : empieza a producir ingrediente (41 milisegundos)
+Estanquero : termina de producir ingrediente 1
+El ingrediente 1 ha sido colocado
+Fumador 1  : termina de fumar, comienza espera de ingrediente.
+Obtengo el ingrediente 1, soy el fumador 1
+El mostrador ya esta vacio
+Estanquero : empieza a producir ingrediente (37 milisegundos)
+Fumador 1  : empieza a fumar (197 milisegundos)
+Estanquero : termina de producir ingrediente 1
+El ingrediente 1 ha sido colocado
+Fumador 1  : termina de fumar, comienza espera de ingrediente.
+Obtengo el ingrediente 1, soy el fumador 1
+El mostrador ya esta vacio
+...
+
+
+
+
+   
+   
+   
+   

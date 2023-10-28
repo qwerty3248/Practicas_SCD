@@ -1,0 +1,3 @@
+Este es el portfolio de el problema de lectores y escritores 
+Se ha pasado del pseudocodigo de las transparencia de practicas a la 
+implementacion de los monitores en c++11
