@@ -8,3 +8,6 @@ if [ $2==1 ]; then
 	git push	
 	
 fi
+
+git status
+
