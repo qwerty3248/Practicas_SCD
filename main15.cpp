@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <iomanip>
 #include <cassert>
@@ -10,8 +9,9 @@
 using namespace std ;
 using namespace scd ;
 
-const int L = 5;
-const int E = 3;
+const int L = 1;
+const int E = 8;
+const int ACCESOS_PERMITIDOS=8;
 
 class LectoresEscritores : public HoareMonitor
 {
@@ -19,9 +19,12 @@ class LectoresEscritores : public HoareMonitor
 private: 
 	int n_lec;
 	bool escrib;
-	int contador;
+	bool hacer_limpieza;
+	int accesos;
 	CondVar lectura;
 	CondVar escritura;
+	CondVar limpiadora;
+	CondVar aux;
 
 
 public:
@@ -30,6 +33,7 @@ public:
 	void fin_lectura();
 	void ini_escritura();
 	void fin_escritura();
+	void limpiar();
 
 
 
@@ -39,26 +43,23 @@ LectoresEscritores::LectoresEscritores(){
 
 	n_lec = 0;
 	escrib = false;
+	accesos = 0;
+	hacer_limpieza=false;
+	aux = newCondVar();
+	limpiadora = newCondVar();
 	lectura = newCondVar();
 	escritura = newCondVar();
-	contador=0;
 
 
 }
 
 
 void LectoresEscritores::ini_lectura(){
-	
-	
+
 	if (escrib){
 		
 		lectura.wait();
 		
-	}
-	
-	if (contador < 2){
-		lectura.wait();
-	
 	}
 	n_lec ++;
 	
@@ -70,15 +71,13 @@ void LectoresEscritores::ini_lectura(){
 
 void LectoresEscritores::fin_lectura(){
 	n_lec--;
-	
-	contador = 0;
+	accesos++;
 	
 	if (n_lec == 0){
-			
+		
 		escritura.signal();
 	
 	}
-	
 	
 
 
@@ -88,13 +87,13 @@ void LectoresEscritores::fin_lectura(){
 
 void LectoresEscritores::ini_escritura(){
 	
-	if ((n_lec > 0 || escrib) && contador == 2){
+	if (n_lec > 0 || escrib){
 		
 		escritura.wait();
 	
 	}
-	
 	escrib = true;
+
 
 }
 
@@ -102,22 +101,58 @@ void LectoresEscritores::ini_escritura(){
 
 void LectoresEscritores::fin_escritura(){
 	
-	
+	accesos++;
 	escrib = false;
-	contador++;
-	if (!(lectura.empty()) && contador == 2){
+	
+	if (accesos >= ACCESOS_PERMITIDOS){
+		hacer_limpieza = true;
+		limpiadora.signal();
 		
-		lectura.signal();
+	
+	}
+	if (hacer_limpieza){
+		aux.wait();//lo meto en la cola de la limpiadora
+	
+	}
+	
+	if (!(escritura.empty())){
+		
+		escritura.signal();
 	
 	}else{
 		
-		escritura.signal();
+		lectura.signal();
 	
 	}
 
 
 }
 
+void LectoresEscritores::limpiar(){
+
+
+	if (!hacer_limpieza){
+		limpiadora.wait();	
+	}
+	
+	cout<<"Limpiador: Se han completado "<<accesos<<endl;
+	//cout<<"Identificador: "<<endl;
+	
+	accesos=0;
+	hacer_limpieza = false;
+	aux.signal();
+	
+	/*limpiadora.wait();//siempre espera hasta que la despierten
+	accesos = 0;
+	this_thread::sleep_for( chrono::milliseconds( aleatorio<50,100>() ));
+	cout<<"Soy el limpiador y he acabado de limpiar"<<endl;
+	limpiadora.signal();//libero al escritor anterior
+	*/
+	
+	
+
+
+}
 
 void Escritor (MRef<LectoresEscritores> monitor,int escritor){
 	
@@ -144,6 +179,16 @@ void Lector (MRef<LectoresEscritores> monitor,int lector){
 
 }
 
+void Limpiador (MRef<LectoresEscritores> monitor) {
+
+	while (true){
+		
+		monitor->limpiar();
+		
+	}
+
+}
+
 
 int main (){
 
@@ -156,6 +201,7 @@ cout    << "--------------------------------------------------------------------
         
         thread lectores[L];
         thread escritores[E];
+        thread limpiador (Limpiador,monitor);
         
         
         for (int i = 0; i < L ; i++){
@@ -181,8 +227,11 @@ cout    << "--------------------------------------------------------------------
         	lectores[i].join();
         
         }	
+        limpiador.join();
 
 
 
 
 }
+
+
