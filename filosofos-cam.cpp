@@ -25,8 +25,10 @@ using namespace std::chrono ;
 const int
    num_filosofos = 5 ,              // número de filósofos 
    num_filo_ten  = 2*num_filosofos, // número de filósofos y tenedores 
-   num_procesos  = num_filo_ten ;   // número de procesos total (por ahora solo hay filo y ten)
+   num_procesos  = num_filo_ten +1  ;   // número de procesos total (por ahora solo hay filo y ten)
 
+const int etiq_sent = 46, etiq_lev = 98;
+int aforo = 0;
 
 //**********************************************************************
 // plantilla de función para generar un entero aleatorio uniformemente
@@ -46,31 +48,24 @@ template< int min, int max > int aleatorio()
 void funcion_filosofos( int id )
 {
   int id_ten_izq = (id+1)              % num_filo_ten, //id. tenedor izq.
-      id_ten_der = (id+num_filo_ten-1) % num_filo_ten; //id. tenedor der.
+      id_ten_der = (id+num_filo_ten-1) % num_filo_ten, //id. tenedor der.
+      id_cam = num_filo_ten,
+      valor;
 
   while ( true )
   {
-    if (id == 0){
-    	
-    	cout <<"Filósofo " <<id <<" solicita ten. der." <<id_ten_der <<endl;
-        // ... solicitar tenedor derecho (completar)
-        MPI_Ssend(&id_ten_der, 1, MPI_INT, id_ten_der, 0, MPI_COMM_WORLD);
-        
-        cout <<"Filósofo " <<id << " solicita ten. izq." <<id_ten_izq <<endl;
-        // ... solicitar tenedor izquierdo (completar)
-        MPI_Ssend(&id_ten_izq,1,MPI_INT,id_ten_izq,0,MPI_COMM_WORLD);
     
-    }else{
-    	
-    	cout <<"Filósofo " <<id << " solicita ten. izq." <<id_ten_izq <<endl;
-        // ... solicitar tenedor izquierdo (completar)
-        MPI_Ssend(&id_ten_izq,1,MPI_INT,id_ten_izq,0,MPI_COMM_WORLD);
-    	
-    	cout <<"Filósofo " <<id <<" solicita ten. der." <<id_ten_der <<endl;
-        // ... solicitar tenedor derecho (completar)
-        MPI_Ssend(&id_ten_der, 1, MPI_INT, id_ten_der, 0, MPI_COMM_WORLD);    
+    cout<<"Solicita el filosofo "<<id<<" sentarse a la mesa"<<endl;
+    //manda mensaje para sentarse
+    MPI_Ssend(&valor,1,MPI_INT,id_cam,etiq_sent,MPI_COMM_WORLD);
     
-    }
+    cout <<"Filósofo " <<id << " solicita ten. izq." <<id_ten_izq <<endl;
+    // ... solicitar tenedor izquierdo (completar)
+    MPI_Ssend(&id_ten_izq,1,MPI_INT,id_ten_izq,0,MPI_COMM_WORLD);
+    
+    cout <<"Filósofo " <<id <<" solicita ten. der." <<id_ten_der <<endl;
+    // ... solicitar tenedor derecho (completar)
+    MPI_Ssend(&id_ten_der, 1, MPI_INT, id_ten_der, 0, MPI_COMM_WORLD);
     
     cout <<"Filósofo " <<id <<" comienza a comer" <<endl ;
     sleep_for( milliseconds( aleatorio<10,100>() ) );
@@ -82,6 +77,11 @@ void funcion_filosofos( int id )
     cout<< "Filósofo " <<id <<" suelta ten. der. " <<id_ten_der <<endl;
     // ... soltar el tenedor derecho (completar)
     MPI_Ssend(&id_ten_der, 1, MPI_INT, id_ten_der, 0, MPI_COMM_WORLD);
+    
+    
+    cout<<"Solicita levantarse el filosofo "<<id<<" de la mesa"<<endl;
+    //manda mensaje para levantarse
+    MPI_Ssend(&valor, 1, MPI_INT, id_cam, etiq_lev, MPI_COMM_WORLD);
     
     cout << "Filosofo " << id << " comienza a pensar" << endl;
     sleep_for( milliseconds( aleatorio<10,100>() ) );
@@ -108,6 +108,29 @@ void funcion_tenedores( int id )
 }
 // ---------------------------------------------------------------------
 
+void funcion_camarero(int id){
+	
+	int valor;
+	MPI_Status estado;
+	
+	
+	while (true){
+		if (aforo < 4){
+			cout<<"Soy el camarero y dejo que un filosofo se siente\n";
+			MPI_Recv ( &valor, 1, MPI_INT,MPI_ANY_SOURCE, etiq_sent, MPI_COMM_WORLD,&estado );	
+			aforo++;
+		}
+		MPI_Recv ( &valor, 1, MPI_INT,MPI_ANY_SOURCE, etiq_lev, MPI_COMM_WORLD,&estado );
+		aforo--;	
+		cout<<"Soy el camarero y dejo que se levante un filosofo\n";
+	
+	
+	}
+}
+
+
+
+// ---------------------------------------------------------------------
 int main( int argc, char** argv )
 {
    int id_propio, num_procesos_actual ;
@@ -120,10 +143,18 @@ int main( int argc, char** argv )
    if ( num_procesos == num_procesos_actual )
    {
       // ejecutar la función correspondiente a 'id_propio'
-      if ( id_propio % 2 == 0 )          // si es par
-         funcion_filosofos( id_propio ); //   es un filósofo
-      else                               // si es impar
-         funcion_tenedores( id_propio ); //   es un tenedor
+      if (id_propio == num_procesos_actual -1  ) 
+         
+         	funcion_camarero( id_propio ); //   es un camarero
+         
+      else if (id_propio % 2 == 0){
+      	funcion_filosofos( id_propio ); //   es un filósofo
+      
+      }else {
+      	 funcion_tenedores( id_propio ); //   es un tenedor
+      
+      } 
+
    }
    else
    {

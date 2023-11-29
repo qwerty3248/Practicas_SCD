@@ -1,0 +1,571 @@
+Ejercicio 1: Productor consumidor multiple
+Cambios:
+	-Ahora cada productor debe producir un numero de items adecuado al 
+	 numero de productores
+	-Ahora en vez de usar id para saber si producir o consumir se usan 
+	 etiquetas 
+
+Salida:
+Productor 1 ha producido valor 16
+Productor 1 va a enviar valor 16
+Buffer ha recibido valor 16
+Buffer va a enviar valor 16
+Consumidor 1 ha recibido valor 46
+Buffer ha recibido valor 46
+Buffer va a enviar valor 46
+Productor 3 ha producido valor 46
+Productor 3 va a enviar valor 46
+Consumidor 0 ha recibido valor 16
+Productor 0 ha producido valor 1
+Productor 0 va a enviar valor 1
+Buffer ha recibido valor 1
+Buffer va a enviar valor 1
+Consumidor 2 ha recibido valor 1
+Productor 3 ha producido valor 47
+Productor 3 va a enviar valor 47
+Buffer ha recibido valor 47
+Buffer va a enviar valor 47
+Consumidor 3 ha recibido valor 47
+Productor 2 ha producido valor 31
+Productor 2 va a enviar valor 31
+Buffer ha recibido valor 31
+Buffer va a enviar valor 31
+Consumidor 4 ha recibido valor 31
+Productor 3 ha producido valor 48
+Productor 3 va a enviar valor 48
+Buffer ha recibido valor 48
+Productor 2 ha producido valor 32
+Productor 2 va a enviar valor 32
+Buffer ha recibido valor 32
+Productor 1 ha producido valor 17
+Productor 1 va a enviar valor 17
+Buffer ha recibido valor 17
+Productor 2 ha producido valor 33
+Productor 2 va a enviar valor 33
+Buffer ha recibido valor 33
+Productor 3 ha producido valor 49
+Productor 3 va a enviar valor 49
+Buffer ha recibido valor 49
+Productor 0 ha producido valor 2
+Productor 0 va a enviar valor 2
+Buffer ha recibido valor 2
+Buffer ha recibido valor 50
+Productor 3 ha producido valor 50
+Productor 3 va a enviar valor 50
+Productor 1 ha producido valor 18
+Productor 1 va a enviar valor 18
+Buffer ha recibido valor 18
+Buffer ha recibido valor 3
+Productor 0 ha producido valor 3
+Productor 0 va a enviar valor 3
+Buffer ha recibido valor 51
+Productor 3 ha producido valor 51
+Productor 3 va a enviar valor 51
+Productor 2 ha producido valor 34
+Productor 2 va a enviar valor 34
+Productor 3 ha producido valor 52
+Productor 3 va a enviar valor 52
+Buffer va a enviar valor 48
+Buffer ha recibido valor 34
+Consumidor 1 ha consumido valor 46
+Consumidor 1 ha recibido valor 48
+Productor 0 ha producido valor 4
+Productor 0 va a enviar valor 4
+Buffer va a enviar valor 32
+Buffer ha recibido valor 52
+Consumidor 0 ha consumido valor 16
+Consumidor 0 ha recibido valor 32
+Buffer va a enviar valor 17
+Buffer ha recibido valor 4
+Consumidor 3 ha consumido valor 47
+Consumidor 3 ha recibido valor 17
+Productor 3 ha producido valor 53
+Productor 3 va a enviar valor 53
+Buffer va a enviar valor 33
+Buffer ha recibido valor 53
+Consumidor 4 ha consumido valor 31
+Consumidor 4 ha recibido valor 33
+Consumidor 2 ha consumido valor 1
+Consumidor 2 ha recibido valor 49
+Buffer va a enviar valor 49
+Productor 1 ha producido valor 19
+Productor 1 va a enviar valor 19
+Buffer ha recibido valor 19
+Productor 2 ha producido valor 35
+Productor 2 va a enviar valor 35
+Productor 3 ha producido valor 54
+Productor 3 va a enviar valor 54
+Productor 0 ha producido valor 5
+Productor 0 va a enviar valor 5
+Buffer va a enviar valor 2
+Buffer ha recibido valor 5
+Consumidor 1 ha consumido valor 48
+Consumidor 1 ha recibido valor 2
+Productor 1 ha producido valor 20
+Productor 1 va a enviar valor 20
+Buffer va a enviar valor 50
+Buffer ha recibido valor 20
+Consumidor 4 ha consumido valor 33
+Consumidor 4 ha recibido valor 50
+Productor 0 ha producido valor 6
+Productor 0 va a enviar valor 6
+Consumidor 3 ha consumido valor 17
+Buffer va a enviar valor 18
+Buffer ha recibido valor 35
+Consumidor 3 ha recibido valor 18
+Consumidor 0 ha consumido valor 32
+Consumidor 0 ha recibido valor 3
+Buffer va a enviar valor 3
+Buffer ha recibido valor 54
+Buffer va a enviar valor 51
+Buffer ha recibido valor 6
+Consumidor 2 ha consumido valor 49
+Consumidor 2 ha recibido valor 51
+Productor 0 ha producido valor 7
+Productor 0 va a enviar valor 7
+Productor 1 ha producido valor 21
+Productor 1 va a enviar valor 21
+Productor 2 ha producido valor 36
+Productor 2 va a enviar valor 36
+Productor 3 ha producido valor 55
+Productor 3 va a enviar valor 55
+Buffer va a enviar valor 34
+Buffer ha recibido valor 21
+Consumidor 1 ha consumido valor 2
+Consumidor 1 ha recibido valor 34
+Consumidor 0 ha consumido valor 3
+Consumidor 0 ha recibido valor 52
+Buffer va a enviar valor 52
+Buffer ha recibido valor 36
+Productor 1 ha producido valor 22
+Productor 1 va a enviar valor 22
+Buffer va a enviar valor 4
+Buffer ha recibido valor 55
+Consumidor 4 ha consumido valor 50
+Consumidor 4 ha recibido valor 4
+Consumidor 3 ha consumido valor 18
+Consumidor 3 ha recibido valor 53
+Buffer va a enviar valor 53
+Buffer ha recibido valor 7
+Consumidor 2 ha consumido valor 51
+Consumidor 2 ha recibido valor 19
+Buffer va a enviar valor 19
+Buffer ha recibido valor 22
+Productor 3 ha producido valor 56
+Productor 3 va a enviar valor 56
+Buffer va a enviar valor 5
+Buffer ha recibido valor 56
+Consumidor 1 ha consumido valor 34
+Consumidor 1 ha recibido valor 5
+Productor 2 ha producido valor 37
+Productor 2 va a enviar valor 37
+Productor 0 ha producido valor 8
+Productor 0 va a enviar valor 8
+Productor 3 ha producido valor 57
+Productor 3 va a enviar valor 57
+Consumidor 0 ha consumido valor 52
+Buffer va a enviar valor 20
+Buffer ha recibido valor 8
+Consumidor 0 ha recibido valor 20
+Productor 0 ha producido valor 9
+Productor 0 va a enviar valor 9
+Productor 1 ha producido valor 23
+Productor 1 va a enviar valor 23
+Buffer va a enviar valor 35
+Buffer ha recibido valor 23
+Consumidor 4 ha consumido valor 4
+Consumidor 4 ha recibido valor 35
+Consumidor 2 ha consumido valor 19
+Consumidor 2 ha recibido valor 54
+Buffer va a enviar valor 54
+Buffer ha recibido valor 37
+Productor 1 ha producido valor 24
+Productor 1 va a enviar valor 24
+Buffer va a enviar valor 6
+Buffer ha recibido valor 57
+Consumidor 3 ha consumido valor 53
+Consumidor 3 ha recibido valor 6
+Consumidor 1 ha consumido valor 5
+Consumidor 1 ha recibido valor 21
+Buffer va a enviar valor 21
+Buffer ha recibido valor 9
+Productor 2 ha producido valor 38
+Productor 2 va a enviar valor 38
+Consumidor 0 ha consumido valor 20
+Consumidor 0 ha recibido valor 36
+Buffer va a enviar valor 36
+Buffer ha recibido valor 24
+Productor 3 ha producido valor 58
+Productor 3 va a enviar valor 58
+Productor 0 ha producido valor 10
+Productor 0 va a enviar valor 10
+Consumidor 4 ha consumido valor 35
+Consumidor 4 ha recibido valor 55
+Buffer va a enviar valor 55
+Buffer ha recibido valor 38
+Consumidor 1 ha consumido valor 21
+Consumidor 1 ha recibido valor 7
+Buffer va a enviar valor 7
+Buffer ha recibido valor 58
+Productor 1 ha producido valor 25
+Productor 1 va a enviar valor 25
+Consumidor 0 ha consumido valor 36
+Consumidor 0 ha recibido valor 22
+Buffer va a enviar valor 22
+Buffer ha recibido valor 10
+Buffer va a enviar valor 56
+Buffer ha recibido valor 25
+Consumidor 2 ha consumido valor 54
+Consumidor 2 ha recibido valor 56
+Productor 2 ha producido valor 39
+Productor 2 va a enviar valor 39
+Buffer va a enviar valor 8
+Buffer ha recibido valor 39
+Consumidor 3 ha consumido valor 6
+Consumidor 3 ha recibido valor 8
+Buffer va a enviar valor 23
+Consumidor 4 ha consumido valor 55
+Consumidor 4 ha recibido valor 23
+Productor 0 ha producido valor 11
+Productor 0 va a enviar valor 11
+Buffer ha recibido valor 11
+Productor 3 ha producido valor 59
+Productor 3 va a enviar valor 59
+Productor 2 ha producido valor 40
+Productor 2 va a enviar valor 40
+Productor 1 ha producido valor 26
+Productor 1 va a enviar valor 26
+Consumidor 1 ha consumido valor 7
+Buffer va a enviar valor 37
+Buffer ha recibido valor 59
+Consumidor 1 ha recibido valor 37
+Buffer va a enviar valor 57
+Buffer ha recibido valor 26
+Consumidor 2 ha consumido valor 56
+Consumidor 2 ha recibido valor 57
+Consumidor 0 ha consumido valor 22
+Buffer va a enviar valor 9
+Consumidor 0 ha recibido valor 9
+Buffer ha recibido valor 40
+Productor 3 ha producido valor 60
+Productor 3 va a enviar valor 60
+Productor 0 ha producido valor 12
+Productor 0 va a enviar valor 12
+Productor 2 ha producido valor 41
+Productor 2 va a enviar valor 41
+Productor 1 ha producido valor 27
+Productor 1 va a enviar valor 27
+Consumidor 1 ha consumido valor 37
+Consumidor 1 ha recibido valor 24
+Buffer va a enviar valor 24
+Buffer ha recibido valor 60
+Consumidor 3 ha consumido valor 8
+Consumidor 3 ha recibido valor 38
+Buffer va a enviar valor 38
+Buffer ha recibido valor 12
+Buffer va a enviar valor 58
+Consumidor 4 ha consumido valor 23
+Consumidor 4 ha recibido valor 58
+Buffer ha recibido valor 27
+Consumidor 0 ha consumido valor 9
+Buffer va a enviar valor 10
+Buffer ha recibido valor 41
+Consumidor 0 ha recibido valor 10
+Consumidor 2 ha consumido valor 57
+Consumidor 2 ha recibido valor 25
+Buffer va a enviar valor 25
+Productor 2 ha producido valor 42
+Productor 2 va a enviar valor 42
+Buffer ha recibido valor 42
+Productor 0 ha producido valor 13
+Productor 0 va a enviar valor 13
+Productor 1 ha producido valor 28
+Productor 1 va a enviar valor 28
+Productor 2 ha producido valor 43
+Productor 2 va a enviar valor 43
+Buffer va a enviar valor 39
+Buffer ha recibido valor 13
+Consumidor 2 ha consumido valor 25
+Consumidor 2 ha recibido valor 39
+Consumidor 3 ha consumido valor 38
+Buffer va a enviar valor 11
+Consumidor 3 ha recibido valor 11
+Buffer ha recibido valor 28
+Consumidor 1 ha consumido valor 24
+Consumidor 1 ha recibido valor 59
+Buffer va a enviar valor 59
+Buffer ha recibido valor 43
+Productor 0 ha producido valor 14
+Productor 0 va a enviar valor 14
+Buffer va a enviar valor 26
+Buffer ha recibido valor 14
+Consumidor 4 ha consumido valor 58
+Consumidor 4 ha recibido valor 26
+Buffer va a enviar valor 40
+Consumidor 0 ha consumido valor 10
+Consumidor 0 ha recibido valor 40
+Productor 2 ha producido valor 44
+Productor 2 va a enviar valor 44
+Buffer ha recibido valor 44
+Productor 0 ha producido valor 15
+Productor 0 va a enviar valor 15
+Productor 1 ha producido valor 29
+Productor 1 va a enviar valor 29
+Consumidor 1 ha consumido valor 59
+Consumidor 1 ha recibido valor 60
+Buffer va a enviar valor 60
+Buffer ha recibido valor 29
+Productor 2 ha producido valor 45
+Productor 2 va a enviar valor 45
+Buffer va a enviar valor 12
+Buffer ha recibido valor 45
+Consumidor 2 ha consumido valor 39
+Consumidor 2 ha recibido valor 12
+Productor 1 ha producido valor 30
+Productor 1 va a enviar valor 30
+Consumidor 4 ha consumido valor 26
+Consumidor 4 ha recibido valor 27
+Buffer va a enviar valor 27
+Buffer ha recibido valor 15
+Buffer va a enviar valor 41
+Buffer ha recibido valor 30
+Consumidor 3 ha consumido valor 11
+Consumidor 3 ha recibido valor 41
+Consumidor 0 ha consumido valor 40
+Consumidor 0 ha recibido valor 42
+Buffer va a enviar valor 42
+Consumidor 2 ha consumido valor 12
+Buffer va a enviar valor 13
+Consumidor 2 ha recibido valor 13
+Consumidor 1 ha consumido valor 60
+Consumidor 1 ha recibido valor 28
+Buffer va a enviar valor 28
+Buffer va a enviar valor 43
+Consumidor 3 ha consumido valor 41
+Consumidor 3 ha recibido valor 43
+Buffer va a enviar valor 14
+Consumidor 4 ha consumido valor 27
+Consumidor 4 ha recibido valor 14
+Consumidor 0 ha consumido valor 42
+Buffer va a enviar valor 44
+Consumidor 0 ha recibido valor 44
+Consumidor 1 ha consumido valor 28
+Consumidor 2 ha consumido valor 13
+Buffer va a enviar valor 29
+Consumidor 2 ha recibido valor 29
+Consumidor 3 ha consumido valor 43
+Consumidor 3 ha recibido valor 45
+Buffer va a enviar valor 45
+Consumidor 4 ha consumido valor 14
+Consumidor 4 ha recibido valor 15
+Buffer va a enviar valor 15
+Consumidor 0 ha consumido valor 44
+Consumidor 2 ha consumido valor 29
+Consumidor 3 ha consumido valor 45
+Consumidor 3 ha recibido valor 30
+Buffer va a enviar valor 30
+Consumidor 4 ha consumido valor 15
+Consumidor 3 ha consumido valor 30
+Programa acabado con exito
+
+
+Ejercicio 2: Filosfos
+
+Cambios:
+	-Los cambios a la solucion que puede dar interbloqueo es simplemente
+	 cambiarle la mano a por ejemplo el primer filosofo de la mesa,es decir,
+	 que uno de ellos empieze cogiendo el tenedor derecho.
+
+Salida:
+
+Filósofo 6 solicita ten. izq.7
+Filósofo 8 solicita ten. izq.9
+Filósofo 8 solicita ten. der.7
+Filósofo 2 solicita ten. izq.3
+Filósofo 4 solicita ten. izq.5
+Ten. 7 ha sido cogido por filo. 6
+Filósofo 6 solicita ten. der.5
+Ten. 9 ha sido cogido por filo. 8
+Filósofo 0 solicita ten. der.9
+Ten. 3 ha sido cogido por filo. 2
+Filósofo 4 solicita ten. der.3
+Filósofo 2 solicita ten. der.1
+Ten. 5 ha sido cogido por filo. 4
+Filósofo 2 comienza a comer
+Ten. 1 ha sido cogido por filo. 2
+Filósofo 2 suelta ten. izq. 3
+Ten. 3 ha sido liberado por filo. 2
+Ten. 3 ha sido cogido por filo. 4
+Filósofo 2 suelta ten. der. 1
+Filosofo 2 comienza a pensar
+Filósofo 4 comienza a comer
+Ten. 1 ha sido liberado por filo. 2
+Filósofo 4 suelta ten. izq. 5
+Filósofo 4 suelta ten. der. 3
+Filosofo 4 comienza a pensar
+Ten. 3 ha sido liberado por filo. 4
+Ten. 5 ha sido liberado por filo. 4
+Ten. 5 ha sido cogido por filo. 6
+Filósofo 6 comienza a comer
+Filósofo 2 solicita ten. izq.3
+Filósofo 2 solicita ten. der.1
+Filósofo 2 comienza a comer
+Ten. 1 ha sido cogido por filo. 2
+Ten. 3 ha sido cogido por filo. 2
+Filósofo 4 solicita ten. izq.5
+Filósofo 2 suelta ten. izq. 3
+Ten. 3 ha sido liberado por filo. 2
+Filósofo 2 suelta ten. der. 1
+Ten. 1 ha sido liberado por filo. 2
+Filosofo 2 comienza a pensar
+Filósofo 6 suelta ten. izq. 7
+Ten. 7 ha sido liberado por filo. 6
+Ten. 7 ha sido cogido por filo. 8
+Filósofo 6 suelta ten. der. 5
+Filósofo 8 comienza a comer
+Filosofo 6 comienza a pensar
+Ten. 5 ha sido liberado por filo. 6
+Ten. 5 ha sido cogido por filo. 4
+Filósofo 4 solicita ten. der.3
+Filósofo 4 comienza a comer
+Ten. 3 ha sido cogido por filo. 4
+Filósofo 2 solicita ten. izq.3
+Filósofo 8 suelta ten. izq. 9
+Filósofo 8 suelta ten. der. 7
+Ten. 9 ha sido liberado por filo. 8
+Ten. 9 ha sido cogido por filo. 0
+Filósofo 0 solicita ten. izq.1
+Ten. 1 ha sido cogido por filo. 0
+Filósofo 0 comienza a comer
+Ten. 7 ha sido liberado por filo. 8
+Filosofo 8 comienza a pensar
+Ten. 1 ha sido liberado por filo. 0
+Filósofo 0 suelta ten. izq. 1
+Filósofo 0 suelta ten. der. 9
+Filosofo 0 comienza a pensar
+Ten. 9 ha sido liberado por filo. 0
+Filósofo 8 solicita ten. izq.9
+Filósofo 8 solicita ten. der.7
+Ten. 9 ha sido cogido por filo. 8
+Ten. 7 ha sido cogido por filo. 8
+Filósofo 8 comienza a comer
+Filósofo 6 solicita ten. izq.7
+Filósofo 4 suelta ten. izq. 5
+Filósofo 4 suelta ten. der. 3
+Filosofo 4 comienza a pensar
+Ten. 5 ha sido liberado por filo. 4
+Filósofo 2 solicita ten. der.1
+Filósofo 2 comienza a comer
+Ten. 3 ha sido liberado por filo. 4
+Ten. 3 ha sido cogido por filo. 2
+Ten. 1 ha sido cogido por filo. 2
+Ten. 1 ha sido liberado por filo. 2
+Filósofo 2 suelta ten. izq. 3
+Filósofo 2 suelta ten. der. 1
+Filosofo 2 comienza a pensar
+Ten. 3 ha sido liberado por filo. 2
+Ten. 5 ha sido cogido por filo. 4
+Ten. 3 ha sido cogido por filo. 4
+
+
+Ejercicio 3: Filosofos con camarero
+
+Cambios:
+	-Aqui todos cogen el primer tenedor el tenedor izquierdo, pero hay un 
+	 camarero que solo deja que el aforo llegue a 3 (<4) para que no haya 
+	 interbloqueo entre ellos, el camarero evita que haya interbloqueo
+
+Salida:
+
+Solicita el filosofo 2 sentarse a la mesa
+Solicita el filosofo 4 sentarse a la mesa
+Solicita el filosofo 6 sentarse a la mesa
+Soy el camarero y dejo que un filosofo se siente
+Ten. 1 ha sido cogido por filo. 2
+Ten. 3 ha sido cogido por filo. 2
+Filósofo 2 solicita ten. izq.3
+Filósofo 2 solicita ten. der.1
+Filósofo 2 comienza a comer
+Solicita el filosofo 0 sentarse a la mesa
+Solicita el filosofo 8 sentarse a la mesa
+Ten. 3 ha sido liberado por filo. 2
+Filósofo 2 suelta ten. izq. 3
+Filósofo 2 suelta ten. der. 1
+Solicita levantarse el filosofo 2 de la mesa
+Filosofo 2 comienza a pensar
+Soy el camarero y dejo que se levante un filosofo
+Soy el camarero y dejo que un filosofo se siente
+Ten. 1 ha sido liberado por filo. 2
+Filósofo 4 solicita ten. izq.5
+Filósofo 4 solicita ten. der.3
+Ten. 5 ha sido cogido por filo. 4
+Ten. 3 ha sido cogido por filo. 4
+Filósofo 4 comienza a comer
+Filósofo 4 suelta ten. izq. 5
+Ten. 5 ha sido liberado por filo. 4
+Filósofo 4 suelta ten. der. 3
+Solicita levantarse el filosofo 4 de la mesa
+Filosofo 4 comienza a pensar
+Soy el camarero y dejo que se levante un filosofo
+Soy el camarero y dejo que un filosofo se siente
+Ten. 3 ha sido liberado por filo. 4
+Filósofo 6 solicita ten. izq.7
+Filósofo 6 solicita ten. der.5
+Ten. 7 ha sido cogido por filo. 6
+Filósofo 6 comienza a comer
+Ten. 5 ha sido cogido por filo. 6
+Filósofo 6 suelta ten. izq. 7
+Filósofo 6 suelta ten. der. 5
+Ten. 7 ha sido liberado por filo. 6
+Soy el camarero y dejo que se levante un filosofo
+Solicita levantarse el filosofo 6 de la mesa
+Filosofo 6 comienza a pensar
+Soy el camarero y dejo que un filosofo se siente
+Filósofo 8 solicita ten. izq.9
+Filósofo 8 solicita ten. der.7
+Ten. 7 ha sido cogido por filo. 8
+Ten. 9 ha sido cogido por filo. 8
+Ten. 5 ha sido liberado por filo. 6
+Filósofo 8 comienza a comer
+Solicita el filosofo 2 sentarse a la mesa
+Solicita el filosofo 4 sentarse a la mesa
+Filósofo 8 suelta ten. izq. 9
+Solicita el filosofo 6 sentarse a la mesa
+Filósofo 8 suelta ten. der. 7
+Solicita levantarse el filosofo 8 de la mesa
+Filosofo 8 comienza a pensar
+Ten. 7 ha sido liberado por filo. 8
+Ten. 9 ha sido liberado por filo. 8
+Filósofo 0 solicita ten. izq.1
+Soy el camarero y dejo que se levante un filosofo
+Soy el camarero y dejo que un filosofo se siente
+Filósofo 0 solicita ten. der.9
+Ten. 1 ha sido cogido por filo. 0
+Ten. 9 ha sido cogido por filo. 0
+Filósofo 0 comienza a comer
+Filósofo 0 suelta ten. izq. 1
+Ten. 9 ha sido liberado por filo. 0
+Ten. 1 ha sido liberado por filo. 0
+Filósofo 0 suelta ten. der. 9
+Solicita levantarse el filosofo 0 de la mesa
+Filosofo 0 comienza a pensar
+Soy el camarero y dejo que se levante un filosofo
+Soy el camarero y dejo que un filosofo se siente
+Filósofo 2 solicita ten. izq.3
+Ten. 3 ha sido cogido por filo. 2
+Filósofo 2 solicita ten. der.1
+Filósofo 2 comienza a comer
+Ten. 1 ha sido cogido por filo. 2
+Solicita el filosofo 8 sentarse a la mesa
+Solicita el filosofo 0 sentarse a la mesa
+Filósofo 2 suelta ten. izq. 3
+Ten. 3 ha sido liberado por filo. 2
+Filósofo 2 suelta ten. der. 1
+Ten. 1 ha sido liberado por filo. 2
+Solicita levantarse el filosofo 2 de la mesa
+Filosofo 2 comienza a pensar
+Soy el camarero y dejo que se levante un filosofo
+Soy el camarero y dejo que un filosofo se siente
+
+
+
