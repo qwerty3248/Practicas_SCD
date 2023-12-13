@@ -93,7 +93,7 @@ const int num_consumidores = 8;
 const int num_procesos_esperado=num_prod_estandar+num_prod_falsos+num_consumidores+2;
 
 // etiquetas
-const int etiq_estandar = 0, etiq_falso = 1, etiq_consumidor = 2;
+const int etiq_estandar = 0/*, etiq_falso = 1*/, etiq_consumidor = 2;
 
 // índices
 const int id_buffer_estandar = num_procesos_esperado-2;
