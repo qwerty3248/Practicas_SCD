@@ -21,6 +21,15 @@
 //  | A B C   | A B D    | A B C   | A B    |
 //  *---------*----------*---------*--------*
 //
+// Pregunta 1:
+//
+// Según mi solución el mínimo tiempo de espera es de 10ms, en el ciclo secundario 2. 
+//
+// Pregunta 2:
+//
+// Sí se puede porque el siguen cabinedo todos los procesos necesarios en un tiempo secudario, el tiempo de espera sería de
+// 0ms el más pequeño ya que en el segundo ciclo secundario se llenan los 500 ms. 
+//
 //
 // Historial:
 // Creado en Diciembre de 2017
@@ -78,7 +87,7 @@ int main( int argc, char *argv[] )
 
       for( int i = 1 ; i <= 4 ; i++ ) // ciclo secundario (4 iteraciones)
       {
-      	time_point<steady_clock> instante1 = steady_clock::now();
+      	//time_point<steady_clock> instante1 = steady_clock::now();
          cout << endl << "Comienza iteración " << i << " del ciclo secundario." << endl ;
 		
          switch( i )
@@ -94,8 +103,8 @@ int main( int argc, char *argv[] )
          // esperar hasta el inicio de la siguiente iteración del ciclo secundario
          sleep_until( ini_sec );
          time_point<steady_clock> instante2 = steady_clock::now();
-         float tiempo = milliseconds_f(instante2-instante1).count();
-         cout<<"El caso "<<i<<" ha tardado "<< tiempo<<" milisegundos, lo esperado es 500"<<endl;
+         float tiempo = milliseconds_f(instante2-ini_sec).count();
+         cout<<"El caso "<<i<<" ha tardado "<< tiempo <<endl;
       }
    }
 }

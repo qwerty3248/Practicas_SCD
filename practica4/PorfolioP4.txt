@@ -1,6 +1,6 @@
 Ejecutivo1-compr:
 
-He creado dos cronometros para ver cuanto tarda desde el inicio (el for) hasta el final (sleep_until) y he sacado las cuentas con la función milliseconds_f() para ver el tiempo que tarda
+He creado un cronometro para ver cuanto tarda desde el inicio (ini_sec) hasta el final (sleep_until) y he sacado las cuentas con la función milliseconds_f() para ver el tiempo que tarda
 
 Salida:
 
@@ -11,26 +11,26 @@ Comienza iteración 1 del ciclo secundario.
    Comienza tarea A (C == 100 ms.) ... fin.
    Comienza tarea B (C == 80 ms.) ... fin.
    Comienza tarea C (C == 50 ms.) ... fin.
-El caso 1 ha tardado 249.99 milisegundos, lo esperado es 250
+El caso 1 ha tardado 0.457829 milisegundos, lo esperado es 250
 
 Comienza iteración 2 del ciclo secundario.
    Comienza tarea A (C == 100 ms.) ... fin.
    Comienza tarea B (C == 80 ms.) ... fin.
    Comienza tarea D (C == 40 ms.) ... fin.
    Comienza tarea E (C == 20 ms.) ... fin.
-El caso 2 ha tardado 250.011 milisegundos, lo esperado es 250
+El caso 2 ha tardado 0.319769 milisegundos, lo esperado es 250
 
 Comienza iteración 3 del ciclo secundario.
    Comienza tarea A (C == 100 ms.) ... fin.
    Comienza tarea B (C == 80 ms.) ... fin.
    Comienza tarea C (C == 50 ms.) ... fin.
-El caso 3 ha tardado 249.785 milisegundos, lo esperado es 250
+El caso 3 ha tardado 0.404519 milisegundos, lo esperado es 250
 
 Comienza iteración 4 del ciclo secundario.
    Comienza tarea A (C == 100 ms.) ... fin.
    Comienza tarea B (C == 80 ms.) ... fin.
    Comienza tarea D (C == 40 ms.) ... fin.
-El caso 4 ha tardado 249.979 milisegundos, lo esperado es 250
+El caso 4 ha tardado 0.137534 milisegundos, lo esperado es 250
 
 
 Ejecutivo2:
@@ -48,6 +48,11 @@ caso 2: A,B,D
 caso 3: A,B,C
 caso 4: A,B
 
+Salida si D fuese 240ms
+
+
+
+
 Salida si D fuese 250ms
 
 ---------------------------------------
@@ -57,26 +62,25 @@ Comienza iteración 1 del ciclo secundario.
    Comienza tarea A (C == 100 ms.) ... fin.
    Comienza tarea B (C == 150 ms.) ... fin.
    Comienza tarea C (C == 200 ms.) ... fin.
-El caso 1 ha tardado 500.124 milisegundos, lo esperado es 500
+El caso 1 ha tardado 0.148249 milisegundos, lo esperado es 500
 
 Comienza iteración 2 del ciclo secundario.
    Comienza tarea A (C == 100 ms.) ... fin.
    Comienza tarea B (C == 150 ms.) ... fin.
    Comienza tarea D (C == 250 ms.) ... fin.
-El caso 2 ha tardado 501.102 milisegundos, lo esperado es 500
+El caso 2 ha tardado 2.11774 milisegundos, lo esperado es 500
 
 Comienza iteración 3 del ciclo secundario.
    Comienza tarea A (C == 100 ms.) ... fin.
    Comienza tarea B (C == 150 ms.) ... fin.
    Comienza tarea C (C == 200 ms.) ... fin.
-El caso 3 ha tardado 498.911 milisegundos, lo esperado es 500
+El caso 3 ha tardado 0.144363 milisegundos, lo esperado es 500
 
 Comienza iteración 4 del ciclo secundario.
    Comienza tarea A (C == 100 ms.) ... fin.
    Comienza tarea B (C == 150 ms.) ... fin.
-El caso 4 ha tardado 499.98 milisegundos, lo esperado es 500
+El caso 4 ha tardado 1.4413 milisegundos, lo esperado es 500
 
----------------------------------------
 
 
 
